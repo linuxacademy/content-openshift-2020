@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: core-object-counts
+spec:
+  hard:
+    pods: ""
+    cpu: ""
+    memory: ""
+    replicationcontrollers: ""
+    services: ""
