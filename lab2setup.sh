@@ -8,7 +8,7 @@ htpasswd -c -B -b users.htpasswd admin doubletap
 oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run -o yaml -n openshift-config | oc replace -f -
 
 ### Log in users ###
-for users in columbus wichita littlerock tallahassee albuquerque flagstaff;
+for users in admin columbus wichita littlerock tallahassee albuquerque flagstaff;
 do oc login -u $users -p doubletap;
 done
 
