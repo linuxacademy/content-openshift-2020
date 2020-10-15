@@ -12,6 +12,9 @@ for users in admin columbus wichita littlerock tallahassee albuquerque flagstaff
 do oc login -u $users -p doubletap;
 done
 
+crc console --credentials
+oc login -u kubeadmin
+
 ### Adding projects ###
 oc new-project doubletap
 oc new-project doubletapui
