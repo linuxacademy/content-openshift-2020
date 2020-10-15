@@ -7,13 +7,21 @@ echo "Lab setup is starting."
 wget https://raw.githubusercontent.com/linuxacademy/content-openshift-2020/master/users.htpasswd
 oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run -o yaml -n openshift-config | oc replace -f -
 
+sleep 20
+
 ### Log in users ###
 for users in admin columbus wichita littlerock tallahassee albuquerque flagstaff;
 do oc login -u $users -p doubletap;
 done
 
+sleep 20
+
+### Log back in as kubeadmin ###
 crc console --credentials
+echo "Log in as kubeadmin."
 oc login -u kubeadmin
+
+sleep 5
 
 ### Adding projects ###
 oc new-project doubletap
