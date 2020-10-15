@@ -5,7 +5,12 @@ echo "Lab setup is starting."
 ### Setting up HTPasswd Identity Provider ###
 htpasswd -c -B -b users.htpasswd admin doubletap
 #wget https://raw.githubusercontent.com/linuxacademy/content-openshift-2020/master/users.htpasswd
-oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run=client -o yaml -n openshift-config | oc replace -f -
+oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run -o yaml -n openshift-config | oc replace -f -
+
+### Log in users ###
+for users in columbus wichita littlerock tallahassee albuquerque flagstaff;
+do oc login -u $users -p doubletap;
+done
 
 ### Adding projects ###
 #oc new-project doubletap
@@ -20,7 +25,7 @@ oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry
 #oc adm policy add-cluster-role-to-user cluster-admin admin
 
 ### Remove kubeadmin login ###
-#oc login -u admin
+#oc login -u admin -p doubletap
 #oc delete secrets kubeadmin -n kube-system
 
 ### Adding Groups ###
