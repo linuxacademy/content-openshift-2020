@@ -43,7 +43,7 @@ sleep 5
 oc login -u admin -p doubletap
 oc delete secrets kubeadmin -n kube-system
 
-sleep5
+sleep 5
 
 ### Adding Groups ###
 oc adm groups new admin columbus
