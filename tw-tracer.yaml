@@ -1,0 +1,97 @@
+apiVersion: v1
+items:
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewBuild
+    creationTimestamp: "2021-01-22T03:32:45Z"
+    labels:
+      build: tw-tracer
+    managedFields:
+    - apiVersion: build.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/generated-by: {}
+          f:labels:
+            .: {}
+            f:build: {}
+        f:spec:
+          f:output:
+            f:to:
+              .: {}
+              f:kind: {}
+              f:name: {}
+          f:runPolicy: {}
+          f:source:
+            f:git:
+              .: {}
+              f:uri: {}
+            f:type: {}
+          f:strategy:
+            f:sourceStrategy:
+              .: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+            f:type: {}
+      manager: oc
+      operation: Update
+      time: "2021-01-22T03:32:45Z"
+    - apiVersion: build.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:triggers: {}
+        f:status:
+          f:lastVersion: {}
+      manager: openshift-apiserver
+      operation: Update
+      time: "2021-01-22T03:32:46Z"
+    name: tw-tracer
+    namespace: twinkies
+    resourceVersion: "384306"
+    selfLink: /apis/build.openshift.io/v1/namespaces/twinkies/buildconfigs/tw-tracer
+    uid: 688c41d3-1555-409c-bede-8964cbef0320
+  spec:
+    failedBuildsHistoryLimit: 5
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: tw-tracer:latest
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/monodot/simple-camel-spring-boot-app
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: openjdk-11:latest
+      type: Source
+    successfulBuildsHistoryLimit: 5
+    triggers:
+    - github:
+        secret: -QSl7UsvoLhzBoOxAVz3
+      type: GitHub
+    - generic:
+        secret: wR_60mzPspfUUVTHFVnf
+      type: Generic
+    - type: ConfigChange
+    - imageChange:
+        lastTriggeredImageID: registry.access.redhat.com/ubi8/openjdk-11@sha256:55c77c2710447a8f1d562f84c893450a79330beaaff24390b042686dd6461ad6
+      type: ImageChange
+  status:
+    lastVersion: 1
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
