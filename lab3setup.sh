@@ -41,7 +41,7 @@ sleep 5
 
 ### Remove kubeadmin login ###
 oc login -u admin -p doubletap
-oc delete secrets kubeadmin -n kube-system
+#oc delete secrets kubeadmin -n kube-system
 
 #sleep 5
 
