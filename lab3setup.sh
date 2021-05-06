@@ -5,7 +5,7 @@ echo "Lab setup is starting."
 ### Setting up HTPasswd Identity Provider ###
 #htpasswd -c -B -b users.htpasswd admin doubletap
 wget https://raw.githubusercontent.com/linuxacademy/content-openshift-2020/master/users.htpasswd
-oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run -o yaml -n openshift-config | oc replace -f -
+oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run=client -o yaml -n openshift-config | oc replace -f -
 
 sleep 20
 
